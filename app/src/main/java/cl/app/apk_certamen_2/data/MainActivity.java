@@ -1,8 +1,8 @@
 package cl.app.apk_certamen_2.data;
-import
 
+
+import static android.app.ProgressDialog.show;
 import static androidx.core.location.LocationManagerCompat.requestLocationUpdates;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
@@ -14,16 +14,13 @@ import android.widget.ProgressBar;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-
 import cl.app.apk_certamen_2.R;
 
 public class MainActivity<locationResult, activity, locationCallback> extends AppCompatActivity {
@@ -52,7 +49,7 @@ public class MainActivity<locationResult, activity, locationCallback> extends Ap
             salida = findViewById(R.id.btnSalir);
 
 
-            progressBar findViewById (R.id.progressBar);
+            progressBar = findViewById (R.id.progressBar);
 
         }
 
@@ -81,7 +78,7 @@ public class MainActivity<locationResult, activity, locationCallback> extends Ap
     private void getCoordenada() {
         try { progressBar.setVisibility(View. VISIBLE);
             LocationRequest locationRequest = new LocationRequest ();
-            locationRequest.setInterval(10000);
+            locationRequest.setInterval(1000);
             locationRequest.setFastestInterval (3000);
             locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
             if (ActivityCompat.checkSelfPermission( context: this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager. PERMISSION_GRANTED) {
@@ -91,10 +88,13 @@ public class MainActivity<locationResult, activity, locationCallback> extends Ap
                     new LocationCallback() {
  @Override
          LocationServices.getFusedLocationProviderClient( activity: MainActivity.this).removelocationUpdates( locationCallback: this);
-                if (locationResult != null && locationResult.getLocations().size() > 0) {
-                            int latestlocationIndex = locationResult.getLocations().size() - 1;
-                            double latitud = locationResult.getLocations().get(latestLocationIndex).getLatitude();
-                            double longitude = locationResult.getLocations ().get (latestLocationIndex).getLongitude();
+                if (locationResult != null && locationResult.getLocations().
+
+                        void size() > 0) {
+                            int latestlocationIndex = locationResult.getLocation().size() - 1;
+                            Object latestLocationIndex;
+                            double latitud = locationResult.getLocation().get(latestLocationIndex).getLatitude();
+                            double longitude = locationResult.getLocation ().get (latestLocationIndex).getLongitude();
                             lat.setText (String.valueOf (latitud));
                             lon.setText (String.valueOf (longitude));
                         }

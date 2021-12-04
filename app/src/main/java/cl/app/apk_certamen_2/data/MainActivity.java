@@ -84,24 +84,22 @@ public class MainActivity<locationResult, activity, locationCallback> extends Ap
             if (ActivityCompat.checkSelfPermission( context: this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager. PERMISSION_GRANTED) {
                 return;
             }
-            LocationServices.getFusedLocationProviderClient(activity: this).requestLocationUpdates(locationRequest,
-                    new LocationCallback() {
+            LocationServices.getFusedLocationProviderClient(activity: this).requestLocationUpdates(locationRequest, new LocationCallback() {
  @Override
          LocationServices.getFusedLocationProviderClient( activity: MainActivity.this).removelocationUpdates( locationCallback: this);
-                if (locationResult != null && locationResult.getLocations().
+                if(locationResult != null && locationResult.getLocations().
 
-                        void size() > 0) {
-                            int latestlocationIndex = locationResult.getLocation().size() - 1;
-                            Object latestLocationIndex;
-                            double latitud = locationResult.getLocation().get(latestLocationIndex).getLatitude();
-                            double longitude = locationResult.getLocation ().get (latestLocationIndex).getLongitude();
-                            lat.setText (String.valueOf (latitud));
-                            lon.setText (String.valueOf (longitude));
-                        }
+                void size() > 0) {
+                    int latestlocationIndex = locationResult.getLocation().size() - 1;
+                    Object latestLocationIndex;
+                    double latitud = locationResult.getLocation().get(latestLocationIndex).getLatitude();
+                    double longitude = locationResult.getLocation ().get (latestLocationIndex).getLongitude();
+                    lat.setText (String.valueOf (latitud));
+                    lon.setText (String.valueOf (longitude));
+                }
             progressBar.setVisibility(View.GONE);
 
-                    },
-                    Looper.myLooper());
+            }, Looper.myLooper());
     }catch (Exception ex){ System.out.println("Error es :" + ex);
         }
         } public void Exit(View view){

@@ -1,8 +1,6 @@
 package cl.app.apk_certamen_2.data.model;
 
-/**
- * Data class that captures user information for logged in users retrieved from LoginRepository
- */
+
 public class LoggedInUser {
 
     private String userId;

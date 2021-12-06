@@ -1,7 +1,6 @@
 package cl.app.apk_certamen_2.data;
 
 public class Result<T> {
-    // hide the private constructor to limit subclass types (Success, Error)
     private Result() {
     }
 
@@ -17,7 +16,6 @@ public class Result<T> {
         return "";
     }
 
-    // Success sub-class
     public final static class Success<T> extends Result {
         private T data;
 
